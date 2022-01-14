@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Balamurugan</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+    <h1 style="text-align: center;">Update Details</h1><br><hr>
+    <div style="text-align: center;">
+        <form action="/adminadd" method="post">
+           <br> <label>enter date</label>
+            <input type="text" name="date"><br><br>
+            <label>enter PoojaDetail</label>
+            <input type="text" name="detail"><br><br>
+            <label>enter status</label>
+            <select name="status" id="status">
+                <option value="Available">Available</option>
+                <option value="booked">Not Available</option>
+              </select><br><br>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+   
+    
+</body>
+</html>

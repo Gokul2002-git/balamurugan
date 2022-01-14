@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Balamurugan</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+   <div class="col-md-6">
+     <h2 style="text-align: center;">Bookings</h2>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">PoojaDetail</th>
+            <th scope="col">phoneNumber</th>
+          </tr>
+        </thead>
+        <tbody>
+<%for(var i=0;i<booking.length;i++){%>
+    <tr>
+        <td><%=booking[i].date%></td>
+        <td><%=booking[i].detail%></td>
+        <td><%=booking[i].phoneNumber%></td>
+    
+    </tr>
+
+<%}%>
+          
+
+        </tbody>
+      </table>
+<button class="btn btn-success"><a href="/" style="text-decoration: none;color: white;">Back</a></button><br><hr>
+   </div>
+
+ 
+   <div class="col-md-8">
+   <h2 style="text-align: center;">தினசரி பூஜை</h2>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">PoojaDetail</th>
+            <th scope="col">Book</th>
+          </tr>
+        </thead>
+        <tbody>
+<%for(var i=0;i<detail.length;i++){%>
+    <tr>
+        <td><%=detail[i].date%></td>
+        <td><%=detail[i].detail%></td>
+    <td><button type="submit" class="btn btn-success"><a href="/adminadd" style="text-decoration: none;color: aliceblue;">Update</a></button></td>
+    </tr>
+
+<%}%>
+          
+
+        </tbody>
+      </table>
+    </div>
+</body>
+</html>
+

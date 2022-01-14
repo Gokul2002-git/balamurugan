@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Balamurugan</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+    <script src='main.js'></script>
+    <style>
+      .back{
+        background-image:url('images/back.jpg') ;
+        height: 400px;
+        background-position:center;
+        background-size: cover;
+     
+      }
+     
+
+      
+    </style>
+</head>
+<body >
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Balamurugan Thirukovil</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">Events</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#foot">Contact Us</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/adminadd"><span class="glyphicon glyphicon-log-in"></span> insert</a></li>
+          <li><a href="/adminlist"><span class="glyphicon glyphicon-log-in"></span> AdminLogin</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+   <div style="margin-top: 3.5%;" class="back">
+       <h2 style="text-align: center;padding-top: 12%;color: aliceblue;font-family: Times New Roman, Times, serif;  font-style: italic;">ஸ்ரீ பாலமுருகன் திருக்கோவில்</h2>
+
+   </div><hr>
+
+ <div class="col-md-12" >
+     <h2 style="text-align: center;">தினசரி பூஜை</h2>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">தேதி</th>
+            <th scope="col">பூஜை தாரர்</th>
+            <th scope="col">பதிவு</th>
+          </tr>
+        </thead>
+        <tbody>
+<%for(var i=0;i<detail.length;i++){%>
+    <tr>
+        <td><%=detail[i].date%></td>
+        <td><%=detail[i].detail%></td>
+        <%if(detail[i].status==="Available"){%>
+            <td><button type="submit" class="btn btn-success"><a href="/bookdetail" style="text-decoration: none;color: aliceblue;">Book</a></button></td>
+        <%}else{%>
+            <td><button type="submit" class="btn btn-danger disabled">Not Available</button></td>
+        <%}%>
+      
+      </tr>
+
+<%}%>
+          
+
+        </tbody>
+      </table>
+</div>
+  
+   
+   
+   <footer class="col-md-12">
+    <%- include("footer") -%> 
+   </footer>
+   

@@ -13,21 +13,22 @@
 </head>
 <body>
    <div class="col-md-6">
-     <h2 style="text-align: center;">Bookings</h2>
+     <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">Bookings</h2>
+     <br><hr>
     <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">Date</th>
-            <th scope="col">PoojaDetail</th>
-            <th scope="col">phoneNumber</th>
+            <th scope="col">தேதி</th>
+            <th scope="col">பூஜை தாரர்</th>
+            <th scope="col">பதிவு</th>
           </tr>
         </thead>
         <tbody>
 <%for(var i=0;i<booking.length;i++){%>
     <tr>
-        <td><%=booking[i].date%></td>
-        <td><%=booking[i].detail%></td>
-        <td><%=booking[i].phoneNumber%></td>
+        <td style="font: italic 15px/30px Georgia, serif;"><%=booking[i].date%></td>
+        <td style="font: italic 15px/30px Georgia, serif;"><%=booking[i].detail%></td>
+        <td style="font: italic 15px/30px Georgia, serif;"><%=booking[i].phoneNumber%></td>
     
     </tr>
 
@@ -41,20 +42,20 @@
 
  
    <div class="col-md-8">
-   <h2 style="text-align: center;">தினசரி பூஜை</h2>
+   <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">தினசரி பூஜை</h2><br><hr>
     <table class="table table-striped">
         <thead>
           <tr>
-            <th scope="col">Date</th>
-            <th scope="col">PoojaDetail</th>
-            <th scope="col">Book</th>
+            <th scope="col">தேதி</th>
+            <th scope="col">பூஜை தாரர்</th>
+            <th scope="col">பதிவு</th>
           </tr>
         </thead>
         <tbody>
 <%for(var i=0;i<detail.length;i++){%>
     <tr>
-        <td><%=detail[i].date%></td>
-        <td><%=detail[i].detail%></td>
+        <td style="font: italic 15px/30px Georgia, serif;"><%=detail[i].date%></td>
+        <td style="font: italic 15px/30px Georgia, serif;"><%=detail[i].detail%></td>
         <form method="post" action="/adminupdate">
           <td><button type="submit" class="btn btn-success" name="updatedate" value="<%=detail[i].date%>">Update</button></td>
         </form>

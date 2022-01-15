@@ -12,19 +12,23 @@
     <script src='main.js'></script>
 </head>
 <body>
-    <h1 style="text-align: center;">Update Details</h1><br><hr>
-    <div style="text-align: center;">
+    <h1 style="text-align: center;font: italic bold 35px/35px Georgia, serif;">Update Details</h1><br><hr>
+    <div style="text-align: center;padding: 30px;">
         <form action="/adminadd" method="post">
-           <br> <label>enter date</label>
-            <input type="text" name="date"><br><br>
-            <label>enter PoojaDetail</label>
-            <input type="text" name="detail"><br><br>
-            <label>enter status</label>
-            <select name="status" id="status">
+           
+            <input type="hidden" name="date" value="<%=date%>"><br><br>
+            <label style="text-align: center;font: italic bold 20px/30px Georgia, serif;">Enter PoojaDetail</label>
+            <input class="form-control form-control-lg" type="text" placeholder="Enter Pooja Details" name="detail"><br><br>
+            
+            <label style="text-align: center;font: italic bold 20px/30px Georgia, serif;">Enter status</label>
+
+              <select class="form-control form-control-lg" name="status" id="status">
                 <option value="Available">Available</option>
                 <option value="booked">Not Available</option>
               </select><br><br>
-            <button type="submit">Update</button>
+              
+             
+            <button type="submit" class="btn btn-success">Update</button>
         </form>
     </div>
    

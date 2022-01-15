@@ -55,7 +55,10 @@
     <tr>
         <td><%=detail[i].date%></td>
         <td><%=detail[i].detail%></td>
-    <td><button type="submit" class="btn btn-success"><a href="/adminadd" style="text-decoration: none;color: aliceblue;">Update</a></button></td>
+        <form method="post" action="/adminupdate">
+          <td><button type="submit" class="btn btn-success" name="updatedate" value="<%=detail[i].date%>">Update</button></td>
+        </form>
+    
     </tr>
 
 <%}%>

@@ -12,18 +12,18 @@
     <script src='main.js'></script>
 </head>
 <body>
-    <h1 style="text-align: center;">Pooja Booking</h1><br><hr>
-    <div style="text-align: center;">
+    <h1 style="text-align: center;font: italic bold 35px/35px Georgia, serif;">Pooja Booking</h1><br><hr>
+    <div style="text-align: center;padding: 30px;">
         <form action="/booking" method="post">
-           <br> <label>enter date</label>
-            <input type="text" name="date"><br><br>
-            <label>enter PoojaDetail</label>
-            <input type="text" name="detail"><br><br>
-            <label>phone number</label>
-            <input type="number" name="phone">
+           
+            <input type="hidden" name="date" value="<%=bookdate%>"><br><br>
+            <label style="text-align: center;font: italic bold 20px/30px Georgia, serif;">Enter PoojaDetail</label>
+            <input type="text" name="detail" class="form-control form-control-lg" placeholder="Enter PoojaDetail"><br><br>
+            <label style="text-align: center;font: italic bold 20px/30px Georgia, serif;">Phone number</label>
+            <input type="number" name="phone" class="form-control form-control-lg" placeholder="Enter Mobile Number"><br><br>
             
            
-            <button type="submit">Book</button>
+            <button type="submit" class="btn btn-success">Book</button>
         </form>
     </div>
    

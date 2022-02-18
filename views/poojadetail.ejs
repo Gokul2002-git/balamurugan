@@ -195,8 +195,15 @@
 </div>
 </div><hr>
 
+<div class="col-md-12" id="nav">
+  <ul class="nav nav-tabs">
+    <li class="active"><a href="#daily" style="font-size: 10px;font-weight: bold;">தினசரிபூஜை</a></li>
+    <li><a href="#sasti" style="font-size: 10px;font-weight: bold;">சஷ்டிபூஜை</a></li>
+    <li><a href="#karthigai" style="font-size: 10px;font-weight: bold;">கிருத்திகைபூஜை</a></li>
+  </ul>
+</div>
 
- 
+
 <div class="main-container">
   <div class="heading">
     <h2 class="heading__title" style="font: italic small-caps bold 20px/30px Georgia, serif;">இன்றைய பூஜை தாரர்</h2>
@@ -217,8 +224,9 @@
   </div>
 </div>
 </div>
+<h2 id="daily" class="heading__title" style="font: italic small-caps bold 20px/30px Georgia, serif;text-align: center;">தினசரி பூஜை</h2>
  <div class="col-md-12" style="overflow-x:auto;">
-     <h2 class="heading__title" style="font: italic small-caps bold 20px/30px Georgia, serif;text-align: center;">தினசரி பூஜை</h2>
+    
     <hr><table class="table table-striped">
         <thead>
           <tr>
@@ -232,13 +240,13 @@
     <tr>
         <td style="font: italic 15px/30px Georgia, serif;"><%=detail[i].date%></td>
         <td style="font: italic 15px/30px Georgia, serif;"><%=detail[i].detail%></td>
-        <form method="post" action="/bookdetail">
+        <form method="post" action="/dailybookdetail">
           <%if(detail[i].status==="Available"){%>
             <td><button type="submit" class="btn btn-success" name="book" value="<%=detail[i].date %>">Book</button></td>
             <input type="hidden" name="button" value="pooja">
           </form>
         <%}else{%>
-            <td><a class="btn btn-danger disabled">Not Available</a></td>
+            <td><a class="btn btn-danger disabled">Booked</a></td>
         <%}%>
         
       
@@ -252,9 +260,84 @@
         </tbody>
       </table>
 </div><hr>
+
+<h2 id="sasti" class="heading__title" style="font: italic small-caps bold 20px/30px Georgia, serif;text-align: center;">கந்த சஷ்டி பூஜை</h2>
+<div class="col-md-12" style="overflow-x:auto;" >
+ <hr><table class="table table-striped">
+     <thead>
+       <tr>
+         <th scope="col" >தேதி</th>
+         <th scope="col" >பூஜை தாரர்</th>
+         <th scope="col" >பதிவு</th>
+       </tr>
+     </thead>
+     <tbody>
+<%for(var i=0;i<sasti.length;i++){%>
+ <tr>
+     <td style="font: italic 15px/30px Georgia, serif;"><%=sasti[i].date%><br>
+      <%=sasti[i].tamilmonth%>
+    </td>
+     <td style="font: italic 15px/30px Georgia, serif;"><%=sasti[i].detail%></td>
+     <form method="post" action="/bookdetail">
+       <%if(sasti[i].status==="Available"){%>
+         <td><button type="submit" class="btn btn-success" name="book" value="<%=sasti[i].date %>">Book</button></td>
+         <input type="hidden" name="button" value="pooja">
+      
+     <%}else{%>
+         <td><a class="btn btn-danger disabled">Booked</a></td>
+     <%}%>
+    </form>
+   
+   
+   
+   </tr>
+
+<%}%>
+       
+
+     </tbody>
+   </table>
+</div><hr>
+   
+
+<h2 id="karthigai" class="heading__title" style="font: italic small-caps bold 20px/30px Georgia, serif;text-align: center;">கிருத்திகை பூஜை</h2>
+<div class="col-md-12" style="overflow-x:auto;" >
   
+ <hr><table class="table table-striped">
+     <thead>
+       <tr>
+         <th scope="col" >தேதி</th>
+         <th scope="col" >பூஜை தாரர்</th>
+         <th scope="col" >பதிவு</th>
+       </tr>
+     </thead>
+     <tbody>
+<%for(var i=0;i<karthigai.length;i++){%>
+ <tr>
+     <td style="font: italic 15px/30px Georgia, serif;"><%=karthigai[i].date%><br>
+    <%=karthigai[i].tamilmonth%>
+    </td>
+     <td style="font: italic 15px/30px Georgia, serif;"><%=karthigai[i].detail%></td>
+     <form method="post" action="">
+       <%if(karthigai[i].status==="Available"){%>
+         <td><button type="submit" class="btn btn-success" name="book" value="">Book</button></td>
+         <input type="hidden" name="button" value="pooja">
+     <%}else{%>
+         <td><a class="btn btn-danger disabled">Booked</a></td>
+     <%}%>
+    </form>
    
    
+   
+   </tr>
+
+<%}%>
+       
+
+     </tbody>
+   </table>
+</div><hr>
+
    <footer class="col-md-12">
     <%- include("footer") -%> 
    </footer>

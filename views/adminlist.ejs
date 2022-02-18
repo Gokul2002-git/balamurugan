@@ -12,36 +12,76 @@
     <script src='main.js'></script>
 </head>
 <body>
-   <div class="col-md-6">
-     <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">Bookings</h2>
-     <br><hr>
-    <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">தேதி</th>
-            <th scope="col">பூஜை தாரர்</th>
-            <th scope="col">பதிவு</th>
-          </tr>
-        </thead>
-        <tbody>
-<%for(var i=0;i<booking.length;i++){%>
-    <tr>
-        <td style="font: italic 15px/30px Georgia, serif;"><%=booking[i].date%></td>
-        <td style="font: italic 15px/30px Georgia, serif;"><%=booking[i].detail%></td>
-        <td style="font: italic 15px/30px Georgia, serif;"><%=booking[i].phoneNumber%></td>
-    
-    </tr>
+  <br>
+  <div class="col-md-12" style="text-align: center;">
+    <button class="btn btn-success"><a href="/" style="text-decoration: none;color: white;">Back</a></button><br><hr>
+  </div>
+ 
+  
+   <div class="col-md-12" style="overflow-x:auto;">
+    <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">கந்த சஷ்டி Bookings</h2>
+    <br><hr>
+   <table class="table table-striped">
+       <thead>
+         <tr>
+           <th scope="col">தேதி</th>
+           <th scope="col">பூஜை தாரர்</th>
+           <th scope="col">கைபேசி எண்</th>
+           <th scope="col">பதிவு</th>
+         </tr>
+       </thead>
+       <tbody>
+<%for(var i=0;i<sastibook.length;i++){%>
+   <tr>
+       <td style="font: italic 15px/30px Georgia, serif;"><%=sastibook[i].date%></td>
+       <td style="font: italic 15px/30px Georgia, serif;"><%=sastibook[i].detail%></td>
+       <td style="font: italic 15px/30px Georgia, serif;"><%=sastibook[i].phoneNumber%></td>
+       <form method="post" action="/sastibookdelete">
+        <td><button type="submit" class="btn btn-danger" name="deleteid" value="<%=sastibook[i]._id%>">Delete</button></td>
+      </form>
+   </tr>
 
 <%}%>
-          
+         
 
-        </tbody>
-      </table>
-<button class="btn btn-success"><a href="/" style="text-decoration: none;color: white;">Back</a></button><br><hr>
-   </div>
+       </tbody>
+     </table>
+  </div>
+<hr>
 
- 
-   <div class="col-md-8">
+<div class="col-md-12" style="overflow-x:auto;">
+  <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">தினசரி பூஜை Bookings</h2>
+  <br><hr>
+ <table class="table table-striped">
+     <thead>
+       <tr>
+         <th scope="col">தேதி</th>
+         <th scope="col">பூஜை தாரர்</th>
+         <th scope="col">கைபேசி எண்</th>
+         <th scope="col">பதிவு</th>
+       </tr>
+     </thead>
+     <tbody>
+<%for(var i=0;i<booking.length;i++){%>
+ <tr>
+     <td style="font: italic 15px/30px Georgia, serif;"><%=booking[i].date%></td>
+     <td style="font: italic 15px/30px Georgia, serif;"><%=booking[i].detail%></td>
+     <td style="font: italic 15px/30px Georgia, serif;"><%=booking[i].phoneNumber%></td>
+     <form method="post" action="/bookingdelete">
+       <td><button type="submit" class="btn btn-danger" name="deleteid" value="<%=booking[i]._id%>">Delete</button></td>
+     </form>
+ </tr>
+
+<%}%>
+       
+
+     </tbody>
+   </table>
+
+</div>
+
+
+   <div class="col-md-8" style="overflow-x:auto;">
    <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">தினசரி பூஜை</h2><br><hr>
     <table class="table table-striped">
         <thead>
@@ -68,6 +108,35 @@
         </tbody>
       </table>
     </div>
+
+    
+   <div class="col-md-8" style="overflow-x:auto;">
+    <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">கந்த சஷ்டி பூஜை</h2><br><hr>
+     <table class="table table-striped">
+         <thead>
+           <tr>
+             <th scope="col">தேதி</th>
+             <th scope="col">பூஜை தாரர்</th>
+             <th scope="col">பதிவு</th>
+           </tr>
+         </thead>
+         <tbody>
+ <%for(var i=0;i<sasti.length;i++){%>
+     <tr>
+         <td style="font: italic 15px/30px Georgia, serif;"><%=sasti[i].date%></td>
+         <td style="font: italic 15px/30px Georgia, serif;"><%=sasti[i].detail%></td>
+         <form method="post" action="/sastiupdate">
+           <td><button type="submit" class="btn btn-success" name="updatedate" value="<%=sasti[i].date%>">Update</button></td>
+         </form>
+     
+     </tr>
+ 
+ <%}%>
+           
+ 
+         </tbody>
+       </table>
+     </div>
 </body>
 </html>
 

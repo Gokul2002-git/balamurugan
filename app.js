@@ -69,6 +69,27 @@ const sastipoojadetail3=new sastipoojadetail({
 });
 const sastidefaultarray=[sastipoojadetail1,sastipoojadetail2,sastipoojadetail3];
 //sastipoojadetail.insertMany(sastidefaultarray);
+const bookingschema={
+    date:String,
+    detail:String,
+    phoneNumber:Number
+};
+const booking=mongoose.model("booking",bookingschema);
+
+const sastibookingschema={
+    date:String,
+    detail:String,
+    phoneNumber:Number
+};
+const sastibooking=mongoose.model("sastibooking",sastibookingschema);
+
+const karthigaibookingschema={
+    date:String,
+    detail:String,
+    phoneNumber:Number
+};
+const karthigaibooking=mongoose.model("karthigaibooking",karthigaibookingschema);
+
 app.get("/",function(req,res){
     var fullday=currentdate.getDate();
     console.log(fullday);
@@ -123,26 +144,7 @@ app.post("/karthigaidetail",function(req,res){
   
 
 });
-const bookingschema={
-    date:String,
-    detail:String,
-    phoneNumber:Number
-};
-const booking=mongoose.model("booking",bookingschema);
 
-const sastibookingschema={
-    date:String,
-    detail:String,
-    phoneNumber:Number
-};
-const sastibooking=mongoose.model("sastibooking",sastibookingschema);
-
-const karthigaibookingschema={
-    date:String,
-    detail:String,
-    phoneNumber:Number
-};
-const karthigaibooking=mongoose.model("karthigaibooking",karthigaibookingschema);
 
 app.post("/karthigaibooking",function(req,res)
 {
@@ -162,8 +164,6 @@ res.redirect("/");
 });
 app.post("/sastibooking",function(req,res)
 {
-    
-    
     const date=req.body.date;
     const detail=req.body.detail;
     const phone=req.body.phone;

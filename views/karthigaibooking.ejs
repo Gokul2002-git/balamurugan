@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>karthigai booking</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+   
+    
+</head>
+<body>
+    <h1 style="text-align: center;font: italic bold 35px/35px Georgia, serif;">Pooja Booking</h1><br><hr>
+    <div style="text-align: center;padding: 30px;">
+        <form action="/karthigaibooking" method="post">
+           
+            <input type="hidden" name="date" value="<%=bookdate%>"><br><br>
+            <label style="text-align: center;font: italic bold 20px/30px Georgia, serif;">Enter Name</label>
+            <input type="text" name="detail" class="form-control form-control-lg" placeholder="Enter PoojaDetail"><br><br>
+            <label style="text-align: center;font: italic bold 20px/30px Georgia, serif;">Phone number</label>
+            <input type="number" name="phone" class="form-control form-control-lg" placeholder="Enter Mobile Number"><br><br>
+            
+           
+            <button type="submit" class="btn btn-success">Book</button>
+        </form>
+    </div>
+   
+    
+</body>
+</html>

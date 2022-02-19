@@ -114,6 +114,15 @@ app.post("/bookdetail",function(req,res){
   
 
 });
+app.post("/karthigaidetail",function(req,res){
+    const date=req.body.book;
+    console.log(date);
+   
+    res.render("karthigaibooking",{bookdate:date});
+    
+  
+
+});
 const bookingschema={
     date:String,
     detail:String,
@@ -128,6 +137,29 @@ const sastibookingschema={
 };
 const sastibooking=mongoose.model("sastibooking",sastibookingschema);
 
+const karthigaibookingschema={
+    date:String,
+    detail:String,
+    phoneNumber:Number
+};
+const karthigaibooking=mongoose.model("karthigaibooking",karthigaibookingschema);
+
+app.post("/karthigaibooking",function(req,res)
+{
+    const date=req.body.date;
+    const detail=req.body.detail;
+    const phone=req.body.phone;
+    const book=new karthigaibooking({
+        date:date,
+        detail:detail,
+        phoneNumber:phone
+    });
+    book.save();
+
+res.redirect("/");
+
+
+});
 app.post("/sastibooking",function(req,res)
 {
     
@@ -179,8 +211,16 @@ app.get("/adminlist",function(req,res)
             {
                 sastibooking.find({},function(err,sastibook)
                 {
-                    res.render("adminlist",{booking:bookingdetail,detail:founddetail,sasti:sasti,sastibook:sastibook});
+                    karthigaipoojadetail.find({},function(err,karthigai)
+                    {
+                        karthigaibooking.find({},function(err,karthigaibook)
+                        {
+res.render("adminlist",{booking:bookingdetail,detail:founddetail,sasti:sasti,karthigai:karthigai,sastibook:sastibook,karthigaibook:karthigaibook});
                     //console.log(founddetail);
+                        });
+
+                    });
+                
                 });
 
             });
@@ -202,6 +242,12 @@ app.post("/sastiupdate",function(req,res)
 {
     const updatedate=req.body.updatedate;
     res.render("sastiadd",{date:updatedate});
+
+});
+app.post("/karthigaiupdate",function(req,res)
+{
+    const updatedate=req.body.updatedate;
+    res.render("karthigaiadd",{date:updatedate});
 
 });
 app.post("/adminadd",function(req,res)
@@ -231,7 +277,27 @@ app.post("/sastiadd",function(req,res)
     const status=req.body.status;
     console.log("date"+date+"detail"+detail+"status"+status);
   
-    sastipoojadetail.updateOne({date:date},{detail:detail,status:status},function(err)
+    sastipoojadetail.updateOne({tamilmonth:date},{detail:detail,status:status},function(err)
+    {
+        if(err)
+        {
+            console.log(err);
+        }else{
+            console.log("updated");
+        }
+
+    });
+    res.redirect("/adminlist");
+
+});
+app.post("/karthigaiadd",function(req,res)
+{
+    const date=req.body.date;
+    const detail=req.body.detail;
+    const status=req.body.status;
+    console.log("date"+date+"detail"+detail+"status"+status);
+  
+    karthigaipoojadetail.updateOne({tamilmonth:date},{detail:detail,status:status},function(err)
     {
         if(err)
         {
@@ -310,6 +376,21 @@ app.post("/sastibookdelete",function(req,res)
     const id=req.body.deleteid;
     console.log(id);
     sastibooking.deleteOne({_id:id},function(err,res)
+    {
+        if(!err)
+        {
+            console.log("deleted");
+        }
+
+    });
+    res.redirect("/adminlist");
+
+});
+app.post("/karthigaidelete",function(req,res)
+{
+    const id=req.body.deleteid;
+    console.log(id);
+  karthigaibooking.deleteOne({_id:id},function(err,res)
     {
         if(!err)
         {

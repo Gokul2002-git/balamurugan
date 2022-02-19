@@ -19,7 +19,7 @@
  
   
    <div class="col-md-12" style="overflow-x:auto;">
-    <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">கந்த சஷ்டி Bookings</h2>
+    <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">சஷ்டி Bookings</h2>
     <br><hr>
    <table class="table table-striped">
        <thead>
@@ -81,6 +81,40 @@
 </div>
 
 
+<div class="col-md-12" style="overflow-x:auto;">
+  <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">கிருத்திகை Bookings</h2>
+  <br><hr>
+ <table class="table table-striped">
+     <thead>
+       <tr>
+         <th scope="col">தேதி</th>
+         <th scope="col">பூஜை தாரர்</th>
+         <th scope="col">கைபேசி எண்</th>
+         <th scope="col">பதிவு</th>
+       </tr>
+     </thead>
+     <tbody>
+<%for(var i=0;i<karthigaibook.length;i++){%>
+ <tr>
+     <td style="font: italic 15px/30px Georgia, serif;"><%=karthigaibook[i].date%></td>
+     <td style="font: italic 15px/30px Georgia, serif;"><%=karthigaibook[i].detail%></td>
+     <td style="font: italic 15px/30px Georgia, serif;"><%=karthigaibook[i].phoneNumber%></td>
+     <form method="post" action="/karthigaidelete">
+       <td><button type="submit" class="btn btn-danger" name="deleteid" value="<%=karthigaibook[i]._id%>">Delete</button></td>
+     </form>
+ </tr>
+
+<%}%>
+       
+
+     </tbody>
+   </table>
+
+</div>
+
+
+
+
    <div class="col-md-8" style="overflow-x:auto;">
    <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">தினசரி பூஜை</h2><br><hr>
     <table class="table table-striped">
@@ -111,7 +145,7 @@
 
     
    <div class="col-md-8" style="overflow-x:auto;">
-    <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">கந்த சஷ்டி பூஜை</h2><br><hr>
+    <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">சஷ்டி பூஜை</h2><br><hr>
      <table class="table table-striped">
          <thead>
            <tr>
@@ -123,10 +157,41 @@
          <tbody>
  <%for(var i=0;i<sasti.length;i++){%>
      <tr>
-         <td style="font: italic 15px/30px Georgia, serif;"><%=sasti[i].date%></td>
+         <td style="font: italic 15px/30px Georgia, serif;"> <%=sasti[i].tamilmonth%>
+         </td>
          <td style="font: italic 15px/30px Georgia, serif;"><%=sasti[i].detail%></td>
          <form method="post" action="/sastiupdate">
-           <td><button type="submit" class="btn btn-success" name="updatedate" value="<%=sasti[i].date%>">Update</button></td>
+           <td><button type="submit" class="btn btn-success" name="updatedate" value="<%=sasti[i].tamilmonth%>">Update</button></td>
+         </form>
+     
+     </tr>
+ 
+ <%}%>
+           
+ 
+         </tbody>
+       </table>
+     </div>
+
+      
+   <div class="col-md-8" style="overflow-x:auto;">
+    <h2 style="text-align: center;font: italic small-caps bold 20px/35px Georgia, serif;">கிருத்திகை பூஜை</h2><br><hr>
+     <table class="table table-striped">
+         <thead>
+           <tr>
+             <th scope="col">தேதி</th>
+             <th scope="col">பூஜை தாரர்</th>
+             <th scope="col">பதிவு</th>
+           </tr>
+         </thead>
+         <tbody>
+ <%for(var i=0;i<karthigai.length;i++){%>
+     <tr>
+         <td style="font: italic 15px/30px Georgia, serif;"> <%=karthigai[i].tamilmonth%>
+         </td>
+         <td style="font: italic 15px/30px Georgia, serif;"><%=karthigai[i].detail%></td>
+         <form method="post" action="/karthigaiupdate">
+           <td><button type="submit" class="btn btn-success" name="updatedate" value="<%=karthigai[i].tamilmonth%>">Update</button></td>
          </form>
      
      </tr>

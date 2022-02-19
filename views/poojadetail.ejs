@@ -9,10 +9,36 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
   
-    <script src='main.js'></script>
+     <script>
+var i = 0;
+var images = [];
+var slideTime = 3000; // 3 seconds
+
+images[0] = 'images/img2.jpeg';
+images[1] = 'images/img1.jpeg';
+images[2] = 'images/img3.jpeg';
+
+
+
+
+function changePicture() {
+    document.getElementById("back").style.backgroundImage = "url(" + images[i] + ")";
+
+    if (i < images.length - 1) {
+        i++;
+    } else {
+        i = 0;
+    }
+    setTimeout(changePicture, slideTime);
+}
+
+window.onload = changePicture;
+
+    </script> 
+
     <style>
       #back{
-        background-image:url('images/bal.jpeg');
+        background-image:url('images/img1.jpeg');
         height: 400px;
         background-position:center;
         background-size: cover;
@@ -261,7 +287,7 @@
       </table>
 </div><hr>
 
-<h2 id="sasti" class="heading__title" style="font: italic small-caps bold 20px/30px Georgia, serif;text-align: center;">கந்த சஷ்டி பூஜை</h2>
+<h2 id="sasti" class="heading__title" style="font: italic small-caps bold 20px/30px Georgia, serif;text-align: center;">சஷ்டி பூஜை</h2>
 <div class="col-md-12" style="overflow-x:auto;" >
  <hr><table class="table table-striped">
      <thead>
@@ -274,13 +300,13 @@
      <tbody>
 <%for(var i=0;i<sasti.length;i++){%>
  <tr>
-     <td style="font: italic 15px/30px Georgia, serif;"><%=sasti[i].date%><br>
+     <td style="font: italic 15px/30px Georgia, serif;">
       <%=sasti[i].tamilmonth%>
     </td>
      <td style="font: italic 15px/30px Georgia, serif;"><%=sasti[i].detail%></td>
      <form method="post" action="/bookdetail">
        <%if(sasti[i].status==="Available"){%>
-         <td><button type="submit" class="btn btn-success" name="book" value="<%=sasti[i].date %>">Book</button></td>
+         <td><button type="submit" class="btn btn-success" name="book" value="<%=sasti[i].tamilmonth%>">Book</button></td>
          <input type="hidden" name="button" value="pooja">
       
      <%}else{%>
@@ -314,13 +340,13 @@
      <tbody>
 <%for(var i=0;i<karthigai.length;i++){%>
  <tr>
-     <td style="font: italic 15px/30px Georgia, serif;"><%=karthigai[i].date%><br>
+     <td style="font: italic 15px/30px Georgia, serif;">
     <%=karthigai[i].tamilmonth%>
     </td>
      <td style="font: italic 15px/30px Georgia, serif;"><%=karthigai[i].detail%></td>
-     <form method="post" action="">
+     <form method="post" action="karthigaidetail">
        <%if(karthigai[i].status==="Available"){%>
-         <td><button type="submit" class="btn btn-success" name="book" value="">Book</button></td>
+         <td><button type="submit" class="btn btn-success" name="book" value="<%=karthigai[i].tamilmonth%>">Book</button></td>
          <input type="hidden" name="button" value="pooja">
      <%}else{%>
          <td><a class="btn btn-danger disabled">Booked</a></td>
